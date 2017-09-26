@@ -1,0 +1,212 @@
+body{
+    background-color: black;
+    margin: 1px;
+    color: white;
+}
+
+#mainGrid{
+    display: grid;
+    grid-template-areas: "a" "b";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    grid-gap: 1px;
+}
+
+#prefGrid{
+    height: 100%;
+    display: grid;
+    grid-template-areas: "c" "e";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    grid-gap: 1px;
+}
+
+
+
+#areaA{
+    grid-area: a;
+    background-color: #E64A19;
+    display: flex;
+}
+
+#speed{
+    margin-left: 20px;
+}
+
+#speed1{
+   border: thin;
+    border-style: solid;
+    border-color: #48321e;
+}
+
+#areaB{
+    grid-area: b;
+    background-color: black;
+}
+
+#canvasArea2{
+    background-color: black;
+    grid-area:e;
+    margin: 0px;
+}
+
+#top{
+    background-color: black;
+    grid-area: c;
+    display: flex;
+}
+
+
+#openWin{
+    background-color: blueviolet;
+    height: 100%;
+}
+
+#saveWin{
+    background-color: #497a56;
+    height: 100%;
+}
+
+#aboutWin{
+    background-color: #7a6947;
+    height: 100%;
+}
+
+#authorWin{
+    background-color: #7a402a;
+    height: 100%;
+}
+
+#canvasArea1{
+    background-color: #7a3e5e;
+    height: 100%;
+}
+
+nav {
+    background-color: #E64A19;
+}
+
+/* убираем отступы и поля, а также list-style для "ul",
+ * и добавляем "position:relative" */
+nav ul {
+    padding:0;
+    margin:0;
+    list-style: none;
+    position: relative;
+}
+
+/* применяем inline-block позиционирование к элементам навигации */
+nav ul li {
+    margin: 0px -7px 0 0;
+    display:inline-block;
+    background-color: #E64A19;
+}
+
+/* стилизуем ссылки */
+nav a {
+    display:block;
+    padding:0 10px;
+    color:#FFF;
+    font-size:20px;
+    line-height: 60px;
+    text-decoration:none;
+}
+
+/* изменяем цвет фона при наведении курсора */
+nav a:hover {
+    background-color: #000000;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+
+/* отображаем выпадающий список при наведении */
+nav ul li:hover > ul {
+    display:inherit;
+}
+
+/* первый уровень выпадающего списка */
+nav ul ul li {
+    min-width:170px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+
+#canvas1{
+    background-image: url("vselennaia-tumannost-zvezdy.jpg");
+}
+
+#canvas2{
+    background-image: url("vselennaia-tumannost-zvezdy.jpg");
+    align-self: center;
+    margin: 0px;
+}
+
+#cell{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}
+
+#rigthHand{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}
+
+p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h4{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#algtype{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}
+
+#action{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}
+
+#buttons{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}
+
+#percent{
+    display: block;
+    border-color: #E64A19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+}

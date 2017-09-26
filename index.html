@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maze</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <script src="pathfinding-browser.min.js"></script>
+</head>
+<body onload="onLoadPage()">
+<div id="mainGrid">
+    <div id="areaA">
+        <div id="menuArea">
+            <nav>
+                <ul>
+                    <li><a href="#">Файл</a>
+                        <ul>
+                            <li><a href="#" onclick="onOpenClick()">Открыть</a></li>
+                            <li><a href="#" onclick="onSaveClick()">Сохранить</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="onPreferenceClick()">Настройки</a></li>
+                    <li><a href="#">Справка</a>
+                        <ul>
+                            <li><a href="#" onclick="onAboutClick()">О программе</a></li>
+                            <li><a href="#" onclick="onAuthorClick()">Об авторе</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" id="start">Старт</a></li>
+                    <li><a href="#" id="stop">Пауза</a></li>
+                    <li><a href="#" id="pause">Стоп</a></li>
+                    <li><a href="#" id="speed">Скорость</a>
+                        <ul>
+                            <li><a href="#">
+                                <input type="range" min="0" max="100" id="speed1" step="1" title="Скорость" align="left" value="50">
+                            </a></li>
+                            <li><a href="#"><input type="number" min="0" max="100" id="speed2" value="50" align="left">
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="areaB">
+        <div id="canvasArea1">
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div id="aboutWin">about</div>
+        <div id="authorWin">author</div>
+        <div id="openWin">open</div>
+        <div id="saveWin">save</div>
+        <div id="prefGrid" >
+            <div id="top">
+                <div id="cell">
+                    <h4>Что поставить в лабиринт</h4>
+                    <p> <input type="radio" value="ship" checked name="obtype" />Поставить корабль</p>
+                    <p> <input type="radio" value="exit" checked name="obtype" />Поставить выход </p>
+                    <p><input type="radio" value="wall" checked name="obtype" />Поставить стенку</p>
+                </div>
+                <div id="rigthHand">
+                    <h4>Куда смотрит корабль</h4>
+                    <p>
+                        <input type="radio" value="top" checked name="sidetype"/>Вверх
+                    </p>
+                    <p>
+                        <input type="radio" value="bottom" name="sidetype"/>Вниз
+                    </p>
+                    <p>
+                        <input type="radio" value="rigth" name="sidetype"/>Вправо
+                    </p>
+                    <p>
+                        <input type="radio" value="left" name="sidetype"/>Влево
+                    </p>
+                </div>
+                <div id="algtype">
+                    <h4>Алгоритм поиска</h4>
+                    <p>
+                        <input type="radio" value="a*" checked name="algtype"/>A*
+                    </p>
+                    <p>
+                        <input type="radio" value="cheb" name="algtype"/>Метрика Чебышева
+                    </p>
+                    <p>
+                        <input type="radio" value="rigthhand" name="algtype"/>Правой руки
+                    </p>
+                </div>
+                <div id="action">
+                    <h4>Что сделать с лабиринтом</h4>
+                    <p> <button onclick="clearTmpMaze()">Очистить</button></p>
+                    <p><button >Сгенерировать новый</button></p>
+                </div>
+                <div id="buttons">
+                    <p> <button title="ОК">ОК</button></p>
+                    <p><button title="/Отмена" >Отмена</button></p>
+                    <p><button title="Закрыть" onclick="onPrefCloseButton()">Закрыть</button></p>
+                </div>
+                <div id="percent">
+                    Заполнено
+                </div>
+            </div>
+            <div id="canvasArea2">
+                <canvas id="canvas2"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
