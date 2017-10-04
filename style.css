@@ -1,10 +1,10 @@
-body{
+body {
     background-color: black;
     margin: 1px;
     color: white;
 }
 
-#mainGrid{
+#mainGrid {
     display: grid;
     grid-template-areas: "a" "b";
     grid-template-rows: auto 1fr;
@@ -13,7 +13,7 @@ body{
     grid-gap: 1px;
 }
 
-#prefGrid{
+#prefGrid {
     height: 100%;
     display: grid;
     grid-template-areas: "c" "e";
@@ -22,98 +22,135 @@ body{
     grid-gap: 1px;
 }
 
-
-
-#areaA{
+#areaA {
     grid-area: a;
-    background-color: #E64A19;
+    background-color: #e64a19;
     display: flex;
 }
 
-#speed{
+#speed {
     margin-left: 20px;
 }
 
-#speed1{
-   border: thin;
+#speed1 {
+    border: thin;
     border-style: solid;
     border-color: #48321e;
 }
 
-#areaB{
+#areaB {
     grid-area: b;
     background-color: black;
 }
 
-#canvasArea2{
+#canvasArea2 {
     background-color: black;
-    grid-area:e;
+    grid-area: e;
     margin: 0px;
 }
 
-#top{
+#top {
     background-color: black;
     grid-area: c;
     display: flex;
 }
 
+#openWin {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+    opacity: 0.6;
+    left: 20%;
+    top: 20%;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: #e64a19;
+}
 
-#openWin{
-    background-color: blueviolet;
+#saveWin {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+    opacity: 0.6;
+    left: 20%;
+    top: 20%;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: #e64a19;
+}
+
+#aboutWin {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+    opacity: 0.6;
+    left: 20%;
+    top: 20%;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: #e64a19;
+}
+
+#authorWin {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+    opacity: 0.6;
+    left: 20%;
+    top: 20%;
+    border-radius: 5px;
+    border-width: medium;
+    border-color: #e64a19;
+}
+
+#canvasArea1 {
+    background-color: black;
     height: 100%;
 }
 
-#saveWin{
-    background-color: #497a56;
-    height: 100%;
-}
-
-#aboutWin{
-    background-color: #7a6947;
-    height: 100%;
-}
-
-#authorWin{
-    background-color: #7a402a;
-    height: 100%;
-}
-
-#canvasArea1{
-    background-color: #7a3e5e;
-    height: 100%;
+#text {
+    margin-left: 200px;
 }
 
 nav {
-    background-color: #E64A19;
+    background-color: #e64a19;
 }
+
 
 /* убираем отступы и поля, а также list-style для "ul",
  * и добавляем "position:relative" */
+
 nav ul {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     list-style: none;
     position: relative;
 }
 
+
 /* применяем inline-block позиционирование к элементам навигации */
+
 nav ul li {
     margin: 0px -7px 0 0;
-    display:inline-block;
-    background-color: #E64A19;
+    display: inline-block;
+    background-color: #e64a19;
 }
+
 
 /* стилизуем ссылки */
+
 nav a {
-    display:block;
-    padding:0 10px;
-    color:#FFF;
-    font-size:20px;
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 20px;
     line-height: 60px;
-    text-decoration:none;
+    text-decoration: none;
 }
 
+
 /* изменяем цвет фона при наведении курсора */
+
 nav a:hover {
     background-color: #000000;
 }
@@ -124,89 +161,220 @@ nav ul ul {
     top: 100%;
 }
 
+
 /* отображаем выпадающий список при наведении */
-nav ul li:hover > ul {
-    display:inherit;
+
+nav ul li:hover>ul {
+    display: inherit;
 }
 
+
 /* первый уровень выпадающего списка */
+
 nav ul ul li {
-    min-width:170px;
-    float:none;
-    display:list-item;
+    min-width: 170px;
+    float: none;
+    display: list-item;
     position: relative;
 }
 
-#canvas1{
-    background-image: url("vselennaia-tumannost-zvezdy.jpg");
+#canvas1 {
+    background-color: black;
 }
 
-#canvas2{
-    background-image: url("vselennaia-tumannost-zvezdy.jpg");
+#canvas2 {
+    background-color: black;
     align-self: center;
     margin: 0px;
 }
 
-#cell{
+#cell {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
 }
 
-#rigthHand{
+#rigthHand {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
 }
 
-p{
+p {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-h4{
+h4 {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-#algtype{
+#algtype {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
 }
 
-#action{
+#metrictype {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
 }
 
-#buttons{
+#action {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
 }
 
-#percent{
+#buttons {
     display: block;
-    border-color: #E64A19;
+    border-color: #e64a19;
     border-radius: 5px;
     border-width: medium;
     border-style: solid;
     margin: 2px;
+    width: 14%;
+}
+
+#percent {
+    display: block;
+    border-color: #e64a19;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    margin: 2px;
+    width: 14%;
+}
+
+#opengrid {
+    display: grid;
+    grid-template-areas: "m n" "l k";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
+    width: 400px;
+    grid-gap: 3px;
+    margin-bottom: 20px;
+}
+
+#savegrid {
+    display: grid;
+    grid-template-areas: "p o" "i u";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
+    width: 400px;
+    grid-gap: 3px;
+    margin-bottom: 20px;
+}
+
+#o1 {
+    background-color: #48321e;
+    border-radius: 10px;
+}
+
+#o2 {
+    background-color: darkorange;
+    border-radius: 10px;
+}
+
+#o3 {
+    background-color: #48242f;
+    border-radius: 10px;
+}
+
+#o4 {
+    background-color: #38483f;
+    border-radius: 10px;
+}
+
+#o1:hover {
+    background-color: #48321e;
+    border-radius: 50px;
+}
+
+#o2:hover {
+    background-color: darkorange;
+    border-radius: 50px;
+}
+
+#o3:hover {
+    background-color: #48242f;
+    border-radius: 50px;
+}
+
+#o4:hover {
+    background-color: #38483f;
+    border-radius: 50px;
+}
+
+#s1 {
+    background-color: #48321e;
+    border-radius: 10px;
+}
+
+#s2 {
+    background-color: #F7911D;
+    border-radius: 10px;
+}
+
+#s3 {
+    background-color: #48242f;
+    border-radius: 10px;
+}
+
+#s4 {
+    background-color: #38483f;
+    border-radius: 10px;
+}
+
+#s1:hover {
+    background-color: #48321e;
+    border-radius: 50px;
+}
+
+#s2:hover {
+    background-color: darkorange;
+    border-radius: 50px;
+}
+
+#s3:hover {
+    background-color: #48242f;
+    border-radius: 50px;
+}
+
+#s4:hover {
+    background-color: #38483f;
+    border-radius: 50px;
+    background-image: url("");
+}
+
+#startstop {
+    width: 55px;
+}
+
+#pausecont {
+    width: 125px;
 }

@@ -1,110 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Maze</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
-    <script src="pathfinding-browser.min.js"></script>
+    <script src="main.js" type="text/javascript"></script>
+    <script src="pathfinding-browser.min.js" type="text/javascript"></script>
 </head>
+
 <body onload="onLoadPage()">
-<div id="mainGrid">
-    <div id="areaA">
-        <div id="menuArea">
-            <nav>
-                <ul>
-                    <li><a href="#">Файл</a>
-                        <ul>
-                            <li><a href="#" onclick="onOpenClick()">Открыть</a></li>
-                            <li><a href="#" onclick="onSaveClick()">Сохранить</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" onclick="onPreferenceClick()">Настройки</a></li>
-                    <li><a href="#">Справка</a>
-                        <ul>
-                            <li><a href="#" onclick="onAboutClick()">О программе</a></li>
-                            <li><a href="#" onclick="onAuthorClick()">Об авторе</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" id="start">Старт</a></li>
-                    <li><a href="#" id="stop">Пауза</a></li>
-                    <li><a href="#" id="pause">Стоп</a></li>
-                    <li><a href="#" id="speed">Скорость</a>
-                        <ul>
-                            <li><a href="#">
-                                <input type="range" min="0" max="100" id="speed1" step="1" title="Скорость" align="left" value="50">
-                            </a></li>
-                            <li><a href="#"><input type="number" min="0" max="100" id="speed2" value="50" align="left">
-                            </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div id="areaB">
-        <div id="canvasArea1">
-            <canvas id="canvas1"></canvas>
-        </div>
-        <div id="aboutWin">about</div>
-        <div id="authorWin">author</div>
-        <div id="openWin">open</div>
-        <div id="saveWin">save</div>
-        <div id="prefGrid" >
-            <div id="top">
-                <div id="cell">
-                    <h4>Что поставить в лабиринт</h4>
-                    <p> <input type="radio" value="ship" checked name="obtype" />Поставить корабль</p>
-                    <p> <input type="radio" value="exit" checked name="obtype" />Поставить выход </p>
-                    <p><input type="radio" value="wall" checked name="obtype" />Поставить стенку</p>
-                </div>
-                <div id="rigthHand">
-                    <h4>Куда смотрит корабль</h4>
-                    <p>
-                        <input type="radio" value="top" checked name="sidetype"/>Вверх
-                    </p>
-                    <p>
-                        <input type="radio" value="bottom" name="sidetype"/>Вниз
-                    </p>
-                    <p>
-                        <input type="radio" value="rigth" name="sidetype"/>Вправо
-                    </p>
-                    <p>
-                        <input type="radio" value="left" name="sidetype"/>Влево
-                    </p>
-                </div>
-                <div id="algtype">
-                    <h4>Алгоритм поиска</h4>
-                    <p>
-                        <input type="radio" value="a*" checked name="algtype"/>A*
-                    </p>
-                    <p>
-                        <input type="radio" value="cheb" name="algtype"/>Метрика Чебышева
-                    </p>
-                    <p>
-                        <input type="radio" value="rigthhand" name="algtype"/>Правой руки
-                    </p>
-                </div>
-                <div id="action">
-                    <h4>Что сделать с лабиринтом</h4>
-                    <p> <button onclick="clearTmpMaze()">Очистить</button></p>
-                    <p><button >Сгенерировать новый</button></p>
-                </div>
-                <div id="buttons">
-                    <p> <button title="ОК">ОК</button></p>
-                    <p><button title="/Отмена" >Отмена</button></p>
-                    <p><button title="Закрыть" onclick="onPrefCloseButton()">Закрыть</button></p>
-                </div>
-                <div id="percent">
-                    Заполнено
-                </div>
-            </div>
-            <div id="canvasArea2">
-                <canvas id="canvas2"></canvas>
+    <div id="mainGrid">
+        <div id="areaA">
+            <div id="menuArea">
+                <nav>
+                    <ul>
+                        <li><a href="#">Файл</a>
+                            <ul>
+                                <li><a href="#" onclick="onOpenClick()">Открыть</a></li>
+                                <li><a href="#" onclick="onSaveClick()">Сохранить</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" onclick="onPreferenceClick()">Настройки</a></li>
+                        <li><a href="#">Справка</a>
+                            <ul>
+                                <li><a href="#" onclick="onAboutClick()">О программе</a></li>
+                                <li><a href="#" onclick="onAuthorClick()">Об авторе</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" id="startstop" onclick="onStartStopClick()"></a>
+                        </li>
+                        <li>
+                            <a href="#" id="pausecont" onclick="onPauseContClick()"></a>
+                        </li>
+                        <li><a href="#" id="speed">Скорость</a>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <input type="range" name="speed" min="1" max="100" id="speed1" step="1" title="Скорость" value="97" onchange="changeSpeed1()" onmousemove="changeSpeed1()">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><input name="speed" type="number" min="1" max="100" id="speed2" value="97" onchange="changeSpeed2()" onmousemove="changeSpeed2()">
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="text">
+
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
+        <div id="areaB">
+            <div id="canvasArea1">
+                <canvas id="canvas1"></canvas>
+            </div>
+            <div id="aboutWin">
+                <h4>О программе</h4>
+                <p>
+                    Генерация лабиринта и поиск пути.
+                </p>
+                <p>
+                    Реализовать генерацию лабиринта и поиск выхода с помощью алгоритма "правой руки".
+                </p>
+                <p>
+                    <img src="./BJHpH.jpg"> Зеленым цветом показан "шар" в евклидовой метрике, красным в метрике Чебышева, синим в метрике городских кварталов.
+                </p>
+                <p>
+                    <button title="Закрыть" onclick="showCanvas()">Закрыть</button>
+                </p>
+            </div>
+            <div id="authorWin">
+                <h4>Об авторе</h4>
+                <p>
+                    Суманеев А.С. ИВТ-21
+                </p>
+                <p>
+                    <button title="Закрыть" onclick="showCanvas()">Закрыть</button>
+                </p>
+            </div>
+            <div id="openWin">
+                <h4>Открыть</h4>
+                <div id="opengrid" title="Выбрать квадратик">
+                    <div id="o1"></div>
+                    <div id="o2"></div>
+                    <div id="o3"></div>
+                    <div id="o4"></div>
+                </div>
+                <p>
+                    <button title="Закрыть" onclick="showCanvas()">Закрыть</button>
+                </p>
+            </div>
+            <div id="saveWin">
+                <h4>Сохранить</h4>
+                <div id="savegrid" title="Выбрать квадратик">
+                    <div id="s1"></div>
+                    <div id="s2"></div>
+                    <div id="s3"></div>
+                    <div id="s4"></div>
+                </div>
+                <p>
+                    <button title="Закрыть" onclick="showCanvas()">Закрыть</button>
+                </p>
+            </div>
+            <div id="prefGrid">
+                <div id="top">
+                    <div id="cell">
+                        <h4>Что поставить в лабиринт</h4>
+                        <p><input type="radio" value="ship" checked name="obtype" onclick="onChangeObject()" />Поставить корабль
+                        </p>
+                        <p><input type="radio" value="exit" name="obtype" onclick="onChangeObject()" />Поставить выход </p>
+                        <p><input type="radio" value="wall" name="obtype" onclick="onChangeObject()" />Поставить стенку
+                        </p>
+                    </div>
+                    <div id="rigthHand">
+                        <h4>Куда направлен корабль</h4>
+                        <p>
+                            <input type="radio" value="top" checked name="sidetype" onclick="onSideChange()" />Влево
+                            <img src="top.png" alt="вверх">
+                        </p>
+                        <p>
+                            <input type="radio" value="rigth" name="sidetype" onclick="onSideChange()" />Вверх
+                            <img src="rigth.png" alt="право">
+                        </p>
+                        <p>
+                            <input type="radio" value="left" name="sidetype" onclick="onSideChange()" />Вниз
+                            <img src="left.png" alt="лево">
+                        </p>
+                        <p>
+                            <input type="radio" value="bottom" name="sidetype" onclick="onSideChange()" />Вправо
+                            <img src="bottom.png" alt="низ">
+                        </p>
+                    </div>
+                    <div id="algtype">
+                        <h4>Алгоритм поиска</h4>
+                        <p>
+                            <input type="radio" value="a*" name="algtype" onclick="onAlgTypeChange()" />Кратчайший(A*)
+                        </p>
+                        <p>
+                            <input type="radio" value="cheb" name="algtype" onclick="onAlgTypeChange()" />Метрика Чебышева
+                        </p>
+                        <p>
+                            <input type="radio" value="rigthhand" checked name="algtype" onclick="onAlgTypeChange()" />Правой руки
+                        </p>
+                        <p>
+                            <input type="radio" value="wawe" name="algtype" onclick="onAlgTypeChange()" />Волновой
+                        </p>
+                    </div>
+                    <div id="metrictype">
+                        <h4>Метрика для волнового алгоритма</h4>
+                        <p>
+                            <input type="radio" value="evk" checked name="mettype" onclick="onMetTypeChange()" />Евклидова
+                        </p>
+                        <p>
+                            <input type="radio" value="city" name="mettype" onclick="onMetTypeChange()" />Городских кварталов
+                        </p>
+                        <p>
+                            <input type="radio" value="cheb" name="mettype" onclick="onMetTypeChange()" />Чебышева
+                        </p>
+                    </div>
+                    <div id="action">
+                        <h4>Что сделать с лабиринтом</h4>
+                        <p>
+                            <button onclick="clearMaze()">Очистить</button>
+                        </p>
+                        <p>
+                            <button onclick="newMaze()">Сгенерировать новый</button>
+                        </p>
+                    </div>
+                    <div id="buttons">
+                        <p>
+                            <button title="Сохранить и закрыть" onclick="onPrefOkButton()">ОК</button>
+                        </p>
+                        <p>
+                            <button title="Отмена изменений" onclick="onPrefCancelButton()">Отмена</button>
+                        </p>
+                        <p>
+                            <button title="Закрыть без сохранения" onclick="onPrefCloseButton()">Закрыть</button>
+                        </p>
+                    </div>
+                    <div id="percent">
+                        <p>
+                            Высота лабиринта
+                            <input name="size" type="number" min="12" max="32" id="width" value="44" step="10" onchange="changeWidth()"></p>
+                        <p>
+                            Ширина лабиринта
+                            <input name="size" type="number" min="14" max="84" id="height" value="112" step="10" onchange="changeHeight()">
+                        </p>
+                        <p>
+                            Отрисовывать путь?
+                            <input type="checkbox" checked id="check" onchange="onCheckClick()" onclick="onCheckClick()" />
+                        </p>
+                        <p>
+                            Отрисовывать расстояние в волновом алгоритме?
+                            <input type="checkbox" checked id="check2" onchange="onCheckClick()" onclick="onCheckClick()" />
+                        </p>
+                    </div>
+                </div>
+                <div id="canvasArea2">
+                    <canvas id="canvas2"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
+
 </html>
